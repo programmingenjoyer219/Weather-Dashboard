@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import Searchbar from "./navbar/Searchbar"
 import ModeToggleButton from "./navbar/ModeToggleButton"
@@ -13,7 +12,7 @@ export default function Navbar({ updateReports, getLocation }) {
                 </svg>
             </Link>
             <Searchbar updateReports={updateReports} />
-            <LocationButton getLocation={getLocation} />
+            {/* <LocationButton getLocation={getLocation} /> */}
             {/* <ModeToggleButton /> */}
         </nav>
     )
