@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather Dashboard Web App
 
-## Getting Started
+A comprehensive and responsive Weather Dashboard Web App built using Next.js and the Open Weather API.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Real-time Weather Data:** Get up-to-date weather information for any city in the world.
+- **Search Functionality:** Easily search for weather conditions in different locations.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
+- **Detailed Forecast:** View current weather conditions, 3-hourly forecasts, and 5-day forecasts.
+- **User-friendly Interface:** Clean and intuitive design for a seamless user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Next.js:** A React framework for building fast and user-friendly web applications.
+- **Open Weather API:** Provides accurate and comprehensive weather data.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+To get a local copy up and running, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   git clone https://github.com/your-username/weather-dashboard.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Navigate to the project directory:**
 
-## Deploy on Vercel
+   ```sh
+   cd weather-dashboard
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install dependencies:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```sh
+   npm install
+   ```
+
+4. **Create a `.env.local` file in the root directory and add your Open Weather API key:**
+
+   ```
+   NEXT_PUBLIC_API_KEY=your_api_key_here
+   ```
+
+5. **Run the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+1. **Search for a city:** Use the search bar to enter the name of the city you want to get the weather information for.
+2. **View weather details:** Check the current weather, 3-hourly forecast, and a 5-day forecast.
+3. **Get weather by location:** Press the location button to fetch weather report of the state you are currently in.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. **Fork the Project**
+2. **Create your Feature Branch:** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your Changes:** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push to the Branch:** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
+
+## Acknowledgements
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Open Weather API Documentation](https://openweathermap.org/api)
+- [Font Awesome](https://fontawesome.com) for icons
