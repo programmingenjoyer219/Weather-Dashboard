@@ -1,5 +1,8 @@
+let date = new Date();
+let offset = date.getTimezoneOffset();
+const nativeTimezoneOffset = Math.abs(offset * 60);
+
 export function utcToStandardTime(unixTime, timezoneOffset) {
-    const nativeTimezoneOffset = 19800;
     // Convert the unix time to milliseconds
     const unixTimeInMilliseconds = unixTime * 1000;
 
