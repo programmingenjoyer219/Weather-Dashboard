@@ -10,7 +10,7 @@ import FiveDayReport from "@/components/FiveDayReport";
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 async function getFiveDayReport(yourLocation) {
-  const endpoint = `http://localhost:3000/api/five-day-report?yourLocation=${yourLocation}`
+  const endpoint = `/api/five-day-report?yourLocation=${yourLocation}`
   try {
     const fiveDayData = await axios.get(endpoint);
     // Note that the Three Hourly Report is included in the fiveDayData
@@ -21,7 +21,7 @@ async function getFiveDayReport(yourLocation) {
 }
 
 async function getCurrentReport(yourLocation) {
-  const endpoint = `http://localhost:3000/api/current-report?yourLocation=${yourLocation}`
+  const endpoint = `/api/current-report?yourLocation=${yourLocation}`
   try {
     const currentData = await axios.get(endpoint);
     return currentData.data;
