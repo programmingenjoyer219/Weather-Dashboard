@@ -10,31 +10,60 @@ export async function GET(request) {
     console.log(yourLocation);
     let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${yourLocation}&appid=${apiKey}&units=metric`;
 
-    try {
-        let weatherApiData = await axios.get(endpoint);
-        let weatherData = weatherApiData.data;
+    // try {
+    //     let weatherApiData = await axios.get(endpoint);
+    //     let weatherData = weatherApiData.data;
 
-        let dataToSend = {
-            locationFound: true,
-            cityName: weatherData["name"],
-            currentTemp: Math.floor(weatherData["main"]["feels_like"]),
-            description: weatherData["weather"][0]["main"],
-            icon: weatherData["weather"][0]["icon"],
-            windSpeed: Math.floor(weatherData["wind"]["speed"] * 3.6),
-            humidity: weatherData["main"]["humidity"],
-            pressure: weatherData["main"]["pressure"],
-            visibility: weatherData["visibility"] / 1000,
-            sunrise: utcToStandardTime(weatherData["sys"]["sunrise"], weatherData["timezone"]),
-            sunset: utcToStandardTime(weatherData["sys"]["sunset"], weatherData["timezone"])
-        }
+    //     let dataToSend = {
+    //         locationFound: true,
+    //         cityName: weatherData["name"],
+    //         currentTemp: Math.floor(weatherData["main"]["feels_like"]),
+    //         description: weatherData["weather"][0]["main"],
+    //         icon: weatherData["weather"][0]["icon"],
+    //         windSpeed: Math.floor(weatherData["wind"]["speed"] * 3.6),
+    //         humidity: weatherData["main"]["humidity"],
+    //         pressure: weatherData["main"]["pressure"],
+    //         visibility: weatherData["visibility"] / 1000,
+    //         sunrise: utcToStandardTime(weatherData["sys"]["sunrise"], weatherData["timezone"]),
+    //         sunset: utcToStandardTime(weatherData["sys"]["sunset"], weatherData["timezone"])
+    //     }
 
-        return NextResponse.json(dataToSend);
-    } catch (error) {
+    //     return NextResponse.json(dataToSend);
+    // } catch (error) {
 
-        console.errpr(error);
-        return NextResponse.json({
-            locationFound: false
+    //     console.errpr(error);
+    //     return NextResponse.json({
+    //         locationFound: false
+    //     });
+
+    // }
+
+    let dataToSend = await axios.get(endpoint)
+        .then(weatherApiData => {
+            let weatherData = weatherApiData.data;
+
+            let rearrangedData = {
+                locationFound: true,
+                cityName: weatherData["name"],
+                currentTemp: Math.floor(weatherData["main"]["feels_like"]),
+                description: weatherData["weather"][0]["main"],
+                icon: weatherData["weather"][0]["icon"],
+                windSpeed: Math.floor(weatherData["wind"]["speed"] * 3.6),
+                humidity: weatherData["main"]["humidity"],
+                pressure: weatherData["main"]["pressure"],
+                visibility: weatherData["visibility"] / 1000,
+                sunrise: utcToStandardTime(weatherData["sys"]["sunrise"], weatherData["timezone"]),
+                sunset: utcToStandardTime(weatherData["sys"]["sunset"], weatherData["timezone"])
+            };
+
+            return rearrangedData;
+        })
+        .catch(error => {
+            console.error(error);
+            return {
+                locationFound: false
+            }
         });
 
-    }
+    return NextResponse.json(dataToSend);
 }
