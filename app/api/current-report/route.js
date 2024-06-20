@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { utcToStandardTime } from "../route";
 import axios from "axios";
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiKey = process.env.API_KEY;
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
